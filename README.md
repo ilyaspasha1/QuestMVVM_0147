@@ -33,7 +33,7 @@ The project follows the standard Android MVVM architecture:
 
 ---
 
-## ✨ Key Features
+Key Features
 
 1. **Student Registration Form (`FormSiswa`)**:
    - Inputs for Full Name, NIM, Email, Gender (Radio buttons), and Address.
@@ -49,28 +49,4 @@ The project follows the standard Android MVVM architecture:
 5. **Unit Testing**:
    - Comprehensive unit test suite (`SiswaViewModelTest`) verifying ViewModel state flow, validation logic, and form resetting.
 
----
 
-## 🛠️ Tech Stack
-
-- **Language**: Kotlin 2.2+
-- **UI Toolkit**: Jetpack Compose (Material 3)
-- **Architecture**: MVVM + StateFlow
-- **Navigation**: Jetpack Navigation Compose
-- **Testing**: JUnit 4
-
----
-
-## 🚀 Getting Started
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/ilyaspasha1/QuestMVVM_0147.git
-   ```
-2. Open the project in **Android Studio**.
-3. Sync project with Gradle files.
-4. Run unit tests:
-   ```bash
-   ./gradlew testDebugUnitTest
-   ```
-5. Run the app on an emulator or physical device.
