@@ -1,6 +1,5 @@
 package com.example.mvvm.viewmodel
 
-import android.util.Patterns
 import androidx.lifecycle.ViewModel
 import com.example.mvvm.model.Siswa
 import com.example.mvvm.model.SiswaFormErrorState
@@ -37,6 +36,16 @@ class SiswaViewModel : ViewModel() {
         }
     }
 
+    fun updateSiswaData(nama: String, nim: String, email: String, gender: String, alamat: String) {
+        _statusUI.value = Siswa(
+            nama = nama,
+            nim = nim,
+            email = email,
+            gender = gender,
+            alamat = alamat
+        )
+    }
+
     fun saveSiswa(siswa: Siswa) {
         _statusUI.value = siswa
     }
@@ -49,7 +58,7 @@ class SiswaViewModel : ViewModel() {
     fun validateForm(nama: String, nim: String, email: String, gender: String, alamat: String): Boolean {
         val namaErr = if (nama.isBlank()) "Nama tidak boleh kosong" else if (nama.length < 3) "Nama minimal 3 karakter" else null
         val nimErr = if (nim.isNotBlank() && !nim.all { it.isDigit() }) "NIM harus berupa angka" else null
-        val emailErr = if (email.isNotBlank() && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) "Format email tidak valid" else null
+        val emailErr = if (email.isNotBlank() && (!email.contains("@") || !email.contains("."))) "Format email tidak valid" else null
         val genderErr = if (gender.isBlank()) "Pilih jenis kelamin" else null
         val alamatErr = if (alamat.isBlank()) "Alamat tidak boleh kosong" else null
 
