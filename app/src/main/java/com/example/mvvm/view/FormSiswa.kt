@@ -15,6 +15,8 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -82,8 +84,11 @@ fun FormSiswa(
                 leadingIcon = { Icon(Icons.Default.Person, contentDescription = null) },
                 trailingIcon = {
                     if (txtNama.isNotEmpty()) {
-                        IconButton(onClick = { txtNama = "" }) {
-                            Icon(Icons.Default.Clear, contentDescription = "Clear Nama")
+                        IconButton(
+                            onClick = { txtNama = "" },
+                            modifier = Modifier.semantics { contentDescription = "Clear Nama Button" }
+                        ) {
+                            Icon(Icons.Default.Clear, contentDescription = null)
                         }
                     }
                 },
@@ -95,7 +100,9 @@ fun FormSiswa(
                 },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Next),
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .semantics { contentDescription = "Input Nama Lengkap" }
             )
 
             Spacer(modifier = Modifier.height(12.dp))
@@ -108,8 +115,11 @@ fun FormSiswa(
                 leadingIcon = { Icon(Icons.Default.Numbers, contentDescription = null) },
                 trailingIcon = {
                     if (txtNim.isNotEmpty()) {
-                        IconButton(onClick = { txtNim = "" }) {
-                            Icon(Icons.Default.Clear, contentDescription = "Clear NIM")
+                        IconButton(
+                            onClick = { txtNim = "" },
+                            modifier = Modifier.semantics { contentDescription = "Clear NIM Button" }
+                        ) {
+                            Icon(Icons.Default.Clear, contentDescription = null)
                         }
                     }
                 },
@@ -121,7 +131,9 @@ fun FormSiswa(
                 },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number, imeAction = ImeAction.Next),
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .semantics { contentDescription = "Input Nomor Induk Mahasiswa atau Siswa" }
             )
 
             Spacer(modifier = Modifier.height(12.dp))
@@ -134,8 +146,11 @@ fun FormSiswa(
                 leadingIcon = { Icon(Icons.Default.Email, contentDescription = null) },
                 trailingIcon = {
                     if (txtEmail.isNotEmpty()) {
-                        IconButton(onClick = { txtEmail = "" }) {
-                            Icon(Icons.Default.Clear, contentDescription = "Clear Email")
+                        IconButton(
+                            onClick = { txtEmail = "" },
+                            modifier = Modifier.semantics { contentDescription = "Clear Email Button" }
+                        ) {
+                            Icon(Icons.Default.Clear, contentDescription = null)
                         }
                     }
                 },
@@ -147,7 +162,9 @@ fun FormSiswa(
                 },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email, imeAction = ImeAction.Next),
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .semantics { contentDescription = "Input Alamat Email" }
             )
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -168,7 +185,9 @@ fun FormSiswa(
                 pilihanJK.forEach { item ->
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier.padding(end = 16.dp)
+                        modifier = Modifier
+                            .padding(end = 16.dp)
+                            .semantics { contentDescription = "Pilihan Jenis Kelamin $item" }
                     ) {
                         RadioButton(
                             selected = txtGender == item,
@@ -192,14 +211,18 @@ fun FormSiswa(
                 leadingIcon = { Icon(Icons.Default.Home, contentDescription = null) },
                 trailingIcon = {
                     if (txtAlamat.isNotEmpty()) {
-                        IconButton(onClick = { txtAlamat = "" }) {
-                            Icon(Icons.Default.Clear, contentDescription = "Clear Alamat")
+                        IconButton(
+                            onClick = { txtAlamat = "" },
+                            modifier = Modifier.semantics { contentDescription = "Clear Alamat Button" }
+                        ) {
+                            Icon(Icons.Default.Clear, contentDescription = null)
                         }
                     }
                 },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(120.dp),
+                    .height(120.dp)
+                    .semantics { contentDescription = "Input Alamat Lengkap" },
                 maxLines = 4,
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done)
             )
@@ -220,7 +243,9 @@ fun FormSiswa(
                             txtAlamat = ""
                             onResetClicked()
                         },
-                        modifier = Modifier.weight(1f)
+                        modifier = Modifier
+                            .weight(1f)
+                            .semantics { contentDescription = "Reset Form Button" }
                     ) {
                         Text(stringResource(id = R.string.btn_reset))
                     }
@@ -238,7 +263,9 @@ fun FormSiswa(
                         onSubmitButtonClicked(dataSiswa)
                     },
                     enabled = isFormValid,
-                    modifier = Modifier.weight(1f)
+                    modifier = Modifier
+                        .weight(1f)
+                        .semantics { contentDescription = "Submit Form Button" }
                 ) {
                     Text(stringResource(id = R.string.btn_submit))
                 }
