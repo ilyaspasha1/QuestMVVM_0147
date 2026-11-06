@@ -2,4 +2,25 @@
     <string name="app_name">MVVM</string>
     <string name="laki">Laki-laki</string>
     <string name="wanita">Perempuan</string>
+
+    <!-- Form Strings -->
+    <string name="form_title">Form Pendaftaran Siswa</string>
+    <string name="form_subtitle">Silakan isi data siswa</string>
+    <string name="label_nama">Nama Lengkap</string>
+    <string name="label_nim">NIM / Nomor Induk</string>
+    <string name="label_email">Alamat Email</string>
+    <string name="label_gender">Jenis Kelamin</string>
+    <string name="label_alamat">Alamat Lengkap</string>
+    <string name="btn_submit">Submit Data</string>
+    <string name="btn_back">Kembali</string>
+    <string name="btn_reset">Reset Form</string>
+    <string name="details_title">Detail Data Siswa</string>
+
+    <!-- Validation Error Strings -->
+    <string name="err_nama_empty">Nama tidak boleh kosong</string>
+    <string name="err_nama_short">Nama minimal 3 karakter</string>
+    <string name="err_nim_invalid">NIM harus berupa angka</string>
+    <string name="err_email_invalid">Format email tidak valid</string>
+    <string name="err_gender_empty">Pilih jenis kelamin</string>
+    <string name="err_alamat_empty">Alamat tidak boleh kosong</string>
 </resources>
