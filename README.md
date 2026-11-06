@@ -1,18 +1,76 @@
- Student Registration Form (Empty)
- <img width="542" height="1079" alt="image" src="https://github.com/user-attachments/assets/55f8be1e-c0b3-4592-945f-ad24ab0306cd" />
+# MVVM Student Registration App (QuestMVVM_0147)
 
+An advanced Android application built using **Jetpack Compose**, **Material 3**, **Kotlin Coroutines / StateFlow**, and **Navigation Compose**, following the strict **MVVM (Model-View-ViewModel)** architectural pattern.
 
-Student Registration Form
-The registration screen allows users to enter their full name, select their gender, and provide their complete address.
+---
+
+## 📱 App Screenshots & UI Flows
+
+### Student Registration Form (Empty)
+<img width="542" height="1079" alt="image" src="https://github.com/user-attachments/assets/55f8be1e-c0b3-4592-945f-ad24ab0306cd" />
+
+### Student Registration Form (Filled)
+The registration screen allows users to enter their full name, NIM, email, select their gender, and provide their complete address.
 <img width="567" height="1077" alt="image" src="https://github.com/user-attachments/assets/88f2b4ab-058d-4a8b-b346-f10e98a14011" />
 
-
-Student Details Screen
-Displays the submitted student information, including name, gender, and address. Users can return to the registration form using the Back button
+### Student Details Screen
+Displays the submitted student information, including name, NIM, email, gender, and address in a polished Material 3 ElevatedCard. Users can return to the registration form using the Back button or top navigation bar.
 <img width="553" height="1080" alt="image" src="https://github.com/user-attachments/assets/9e76c51a-71fc-46c3-a6a5-2782db40cb99" />
 
-
-Form Validation
-The application validates user input and keeps the Submit button disabled until all required fields are completed.
+### Form Validation
+The application validates user input (such as minimum name length, valid email, and required fields) and keeps the Submit button disabled until all required fields are correctly completed.
 <img width="549" height="1080" alt="image" src="https://github.com/user-attachments/assets/30d1b229-b904-44bf-a6ea-f023fc4cc211" />
 
+---
+
+## 🏗️ Architecture & Project Structure
+
+The project follows the standard Android MVVM architecture:
+- **`model/`**: Data classes (`Siswa`, `SiswaFormErrorState`) and helper objects (`DataJK`).
+- **`viewmodel/`**: `SiswaViewModel` managing UI state flows (`StateFlow`), form validation rules, and business logic.
+- **`view/`**: Declarative Jetpack Compose UI screens (`FormSiswa`, `TampilSiswa`).
+- **`view/uicontroller/`**: Navigation controller (`Navigasi.kt`) handling screen transitions (`NavHost` with smooth slide/fade animations).
+
+---
+
+## ✨ Key Features
+
+1. **Student Registration Form (`FormSiswa`)**:
+   - Inputs for Full Name, NIM, Email, Gender (Radio buttons), and Address.
+   - Real-time input validation with helper texts and error feedback.
+   - Clear and reset form capabilities.
+2. **Student Details Display (`TampilSiswa`)**:
+   - Material 3 `ElevatedCard` layout presenting registered student data clearly with icons.
+   - Smooth Back navigation (`popBackStack()`).
+3. **State Management**:
+   - Built on Kotlin `StateFlow` and `MutableStateFlow` for reactive, lifecycle-aware state updates.
+4. **Animated Navigation**:
+   - Custom horizontal slide and fade animations between screens using Navigation Compose.
+5. **Unit Testing**:
+   - Comprehensive unit test suite (`SiswaViewModelTest`) verifying ViewModel state flow, validation logic, and form resetting.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Language**: Kotlin 2.2+
+- **UI Toolkit**: Jetpack Compose (Material 3)
+- **Architecture**: MVVM + StateFlow
+- **Navigation**: Jetpack Navigation Compose
+- **Testing**: JUnit 4
+
+---
+
+## 🚀 Getting Started
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ilyaspasha1/QuestMVVM_0147.git
+   ```
+2. Open the project in **Android Studio**.
+3. Sync project with Gradle files.
+4. Run unit tests:
+   ```bash
+   ./gradlew testDebugUnitTest
+   ```
+5. Run the app on an emulator or physical device.
