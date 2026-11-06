@@ -1,4 +1,3 @@
-
 package com.example.mvvm.view.uicontroller
 
 import androidx.compose.runtime.Composable
@@ -33,6 +32,9 @@ fun Navigasi(
                 onSubmitButtonClicked = { dataSiswa ->
                     siswaViewModel.setSiswa(dataSiswa)
                     navController.navigate("tampil_siswa")
+                },
+                onResetClicked = {
+                    siswaViewModel.resetState()
                 }
             )
         }
