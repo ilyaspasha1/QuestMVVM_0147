@@ -37,14 +37,13 @@ class SiswaViewModel : ViewModel() {
         }
     }
 
-    fun updateSiswaData(nama: String, nim: String, email: String, gender: String, alamat: String) {
-        _statusUI.value = Siswa(
-            nama = nama,
-            nim = nim,
-            email = email,
-            gender = gender,
-            alamat = alamat
-        )
+    fun saveSiswa(siswa: Siswa) {
+        _statusUI.value = siswa
+    }
+
+    fun resetState() {
+        _statusUI.value = Siswa()
+        _errorState.value = SiswaFormErrorState()
     }
 
     fun validateForm(nama: String, nim: String, email: String, gender: String, alamat: String): Boolean {
